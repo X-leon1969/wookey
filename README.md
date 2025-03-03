@@ -47,10 +47,11 @@ usage: wookey-archives-search.py [-h] --db DB --table TABLE --fields FIELDS --re
                                  [--search SEARCH] [--case] [--context CONTEXT] [--all] [--save] [--create]
                                  [--any] [--noduplicates] [--emailaddress] [--debug] [--verbose]
 ```
-@leon1969, https://x.com/leon1969
 
 it's as if the options list never ends. this should work:
 ```
 5. wookey-archives-search.py --db YourDatabase.db --table documents_archives --fields "text" --return_fields "documentName,{results},fromFilePath" --search "Your Eloquent, Search, String" --save --any
 ```
 this will give you an excel file containing references to all documents that have any of the phrases or words "Your Eloquent, Search, String" in the provided search fields, in this case text, but nut ocrText. a more appealing example would be 'vaccinatieregistratie' or 'CIMS', but that's just me.
+
+@leon1969, https://x.com/leon1969
