@@ -33,8 +33,9 @@ usage: wookey-archives.py [-h] --db DB [--empty] [--check] [--query QUERY [QUERY
 ```
 
 again a lot of options. what should work is this:
+```
 4. wookey-archives.py --db YourDatabase.db --text "YourRootFolderForDownloads"
-
+```
 this will create the text and ocrText fields for every document. for that it will unpack a zip, scan it's contents, register everything and clean up again. you will have to have tesseract and plotter installed. follow the errors when using the scripts. or have your local AI write you an installer for your specific situation, whatever you're comfortable with.
 
 the final script for this release.
@@ -49,6 +50,7 @@ usage: wookey-archives-search.py [-h] --db DB --table TABLE --fields FIELDS --re
 @leon1969, https://x.com/leon1969
 
 it's as if the options list never ends. this should work:
+```
 5. wookey-archives-search.py --db YourDatabase.db --table documents_archives --fields "text" --return_fields "documentName,{results},fromFilePath" --search "Your Eloquent, Search, String" --save --any
-
+```
 this will give you an excel file containing references to all documents that have any of the phrases or words "Your Eloquent, Search, String" in the provided search fields, in this case text, but nut ocrText. a more appealing example would be 'vaccinatieregistratie' or 'CIMS', but that's just me.
