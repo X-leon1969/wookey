@@ -82,6 +82,9 @@ options:
   --quick            Quick mode: only check first and last lines, prefer structure matching previous number
   --dpi DPI          DPI mode to use, e.g. 300
 ```
+
+----
+
 Another update. Added some more scripts that work with the wobcovid19.rijksoverheid.nl inventaris files and combined pdf files. The script wookeype.py will extract specific page numbers from a pdf into a single pdf. And wookeyp2excel.py will use the text from the \*inventaris\*.pdf files which list all supplied document id's, their name (not always) and their Beoordeling (not always).
 
 ```
