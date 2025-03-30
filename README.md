@@ -17,8 +17,13 @@ as you can see there are a lot of options of which a lot might not work. that's 
 what should work is this:
 ```
 wookey.py --db YourDatabase.db --search
-wookey.py --db YourDatabase.db --requests --query "SELECT DISTINCT rt.Title, rt.tag_value FROM requests_tags rt WHERE rt.tag_key = 'DossierURL' ORDER BY rt.ModifiedDate DESC"
-wookey.py --db YourDatabase.db --download "YourRootFolderForDownloads" --query "SELECT DISTINCT rt.Title AS title, rt.tag_key AS tag_key, COALESCE(rt2.tag_value, '--') AS download_url, 'archieven_files/' || rt.tag_value AS bestandsnaam FROM requests_tags rt LEFT OUTER JOIN requests_tags rt2 ON rt.Title = rt2.Title AND rt2.tag_key = 'Download document archief_linkhref_1' WHERE rt.tag_key = 'Download document archief_linkname_1'"
+wookey.py --db YourDatabase.db --requests --query "SELECT DISTINCT rt.Title, rt.tag_value FROM
+            requests_tags rt WHERE rt.tag_key = 'DossierURL' ORDER BY rt.ModifiedDate DESC"
+wookey.py --db YourDatabase.db --download "YourRootFolderForDownloads" --query "SELECT DISTINCT
+            rt.Title AS title, rt.tag_key AS tag_key, COALESCE(rt2.tag_value, '--') AS download_url,
+            'archieven_files/' || rt.tag_value AS bestandsnaam FROM requests_tags rt LEFT OUTER JOIN
+            requests_tags rt2 ON rt.Title = rt2.Title AND rt2.tag_key = 'Download document archief_linkhref_1'
+            WHERE rt.tag_key = 'Download document archief_linkname_1'"
 ```
 
 this will get you the downloaded archives, around 260 or something, you'll never know. maybe 350GB? who can say. maybe less. how much time? well, you could try tinkering with parameters like --thread and --workers, but there is really no guarantee that will work and most probably it might ruin things.
@@ -54,7 +59,9 @@ usage: wookey-archives-search.py [-h] --db DB --table TABLE --fields FIELDS --re
 
 it's as if the options list never ends. this should work:
 ```
-6. wookey-archives-search.py --db YourDatabase.db --table documents_archives --fields "text" --return_fields "documentName,{results},fromFilePath" --search "Your Eloquent, Search, String" --save --any
+6. wookey-archives-search.py --db YourDatabase.db --table documents_archives --fields "text"
+                        --return_fields "documentName,{results},fromFilePath"
+                        --search "Your Eloquent, Search, String" --save --any
 ```
 this will give you an excel file containing references to all documents that have any of the phrases or words "Your Eloquent, Search, String" in the provided search fields, in this case text, but nut ocrText. a more appealing example would be 'vaccinatieregistratie' or 'CIMS', but that's just me.
 
