@@ -82,5 +82,39 @@ options:
   --quick            Quick mode: only check first and last lines, prefer structure matching previous number
   --dpi DPI          DPI mode to use, e.g. 300
 ```
+Another update. Added some more scripts that work with the wobcovid19.rijksoverheid.nl inventaris files and combined pdf files. The script wookeype.py will extract specific page numbers from a pdf into a single pdf. And wookeyp2excel.py will use the text from the \*inventaris\*.pdf files which list all supplied document id's, their name (not always) and their Beoordeling (not always).
+
+```
+usage: wookeype.py [-h] --page PAGE [--ocr] [--set [SET]] [--db DB] pdf_file
+
+wookeype.py - Extract text and optionally set document numbers for PDF pages.
+
+positional arguments:
+  pdf_file     Path to the PDF file
+
+options:
+  -h, --help   show this help message and exit
+  --page PAGE  Page number (e.g., '5'), range (e.g., '1-32, 35, 37'), or 'all'
+  --ocr        Force OCR instead of using text layer
+  --set [SET]  Set document number: omit value to prompt, or provide value (e.g., --set '12345') to set directly
+  --db DB      Path to the SQLite database file (required with --set)
+```
+
+```
+usage: wookeyp2excel.py [-h] [--output OUTPUT] [--db DB] [--verbose] [--test] [--length LENGTH] input_file
+
+wookeyp2excel.py - Convert a multi-line text file with document data into an Excel file and optionally a database.
+
+positional arguments:
+  input_file       Path to the input text file
+
+options:
+  -h, --help       show this help message and exit
+  --output OUTPUT  Path to the output Excel file (default: input_file.xlsx)
+  --db DB          Path to the SQLite database file (optional)
+  --verbose        Verbose mode ON
+  --test           Test 50 lines
+  --length LENGTH  Expected length of Nr. values (e.g., 6 or 7).
+```
 
 @leon1969, https://x.com/leon1969
