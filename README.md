@@ -110,6 +110,8 @@ options:
   --db DB      Path to the SQLite database file (required with --set)
 ```
 
+This one will convert old inventarisfiles (wobcovid website) into excel files.
+
 ```
 usage: wookeyp2excel.py [-h] [--output OUTPUT] [--db DB] [--verbose] [--test] [--length LENGTH] input_file
 
@@ -126,5 +128,7 @@ options:
   --test           Test 50 lines
   --length LENGTH  Expected length of Nr. values (e.g., 6 or 7).
 ```
+
+Update: added documents_and_tags.sql.
 
 @leon1969, https://x.com/leon1969
