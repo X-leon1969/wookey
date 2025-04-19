@@ -31,7 +31,7 @@ WITH tags_pivot AS (
 		MAX(CASE WHEN tag_key LIKE 'Notificaties_1_linkhref_11' THEN tag_value ELSE '--' END) AS reedsOpenbaarLink11,
 		validUntil
     FROM documents_tags
-    WHERE tag_key IN ('document_documentNumber', 'document_documentName', 'document_documentPublicationDate', 'About_Datum document', 'Notificaties_1', 'About_Beoordeling', 'DocumentDownload_linkhref', 'Request_Onderdeel van_linkname_1', 'Request_Onderdeel van_linkhref_1', '')
+    WHERE tag_key IN ('document_documentNumber', 'document_documentName', 'document_documentPublicationDate', 'About_Datum document', 'Notificaties_1', 'About_Beoordeling', 'DocumentDownload_linkhref', 'Request_Onderdeel van_linkname_1', 'Request_Onderdeel van_linkhref_1')
 	OR tag_key LIKE 'Notificaties_1_linkhref_%'
 	OR tag_key LIKE 'About_Uitzonderingsgrond(en)_linkname_%'
 	OR tag_key LIKE 'About_Gelakte gegevens_linkname_%'
